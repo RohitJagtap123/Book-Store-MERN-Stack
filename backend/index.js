@@ -1,5 +1,5 @@
 import express from 'express';
-import { PORT, mongoDBURL } from './config.js';
+// import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
@@ -27,9 +27,9 @@ app.get('/', (request, response) => {
 });
 
 app.use('/books', booksRoute);
-
+const PORT=5555;
 mongoose
-  .connect(mongoDBURL)
+  .connect('mongodb+srv://rohitjagtap749:rohit2004@cluster0.5ikb0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => {
     console.log('App connected to database');
     app.listen(PORT, () => {
